@@ -14,9 +14,30 @@
     <title>Document</title>
 </head>
 
-<!-- search bar -->
+
+
 <body>
     <div class='container'>
+
+        <div class='row'>
+            <div class='col-md-12'>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                      <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#">Features</a>
+                        <a id='cart' class="nav-item nav-link" href="#">Cart(0)</a>
+                        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+        </div>
+<!-- search bar -->
         <div class='row'>
             <div class='col-md-12'>
                 <form class='card card-sm'>
@@ -88,6 +109,7 @@
         cart = JSON.parse(localStorage.getItem('cart'));
     }
 
+    // add items to cart
     $(document).on('click','.atc',function(){
 
         var item_id = this.id.toString();
@@ -99,6 +121,10 @@
             cart[item_id] = 1;
         }
         localStorage.setItem('cart',JSON.stringify(cart))
+        // change cart text to number of products in cart
+        document.getElementById('cart').innerHTML = "Cart("+ Object.keys(cart).length +")";
+
+        console.log(cart)
 
     });
 
