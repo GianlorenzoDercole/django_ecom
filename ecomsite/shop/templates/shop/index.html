@@ -89,9 +89,17 @@
     }
 
     $(document).on('click','.atc',function(){
-        console.log('the add to cart button is clicked')
-        var item_id = this.id.toString()
-        console.log(item_id);
+
+        var item_id = this.id.toString();
+
+        if(cart[item_id]!=undefined){
+            cart[item_id] = cart[item_id] + 1;
+        }
+        else {
+            cart[item_id] = 1;
+        }
+        localStorage.setItem('cart',JSON.stringify(cart))
+
     });
 
 </script>
