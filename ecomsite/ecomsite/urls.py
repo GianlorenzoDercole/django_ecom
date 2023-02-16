@@ -18,7 +18,7 @@ from django.urls import path
 
 # import the views file
 from shop import views
-
+# paths for index, product pages and checkout page
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),

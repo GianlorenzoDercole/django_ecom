@@ -23,7 +23,7 @@ def index(request):
 def detail(request,id):
     product_object = Products.objects.get(id=id)
     return render(request,'shop/detail.html',{'product_object':product_object})
-
+# view for checkout page
 def checkout(request):
 
     if request.method == 'POST':

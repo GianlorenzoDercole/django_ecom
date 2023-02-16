@@ -9,7 +9,7 @@ class Products(models.Model):
     category = models.CharField(max_length=200)
     description = models.TextField()
     image = models.CharField(max_length=300)
-
+# model for each individual order
 class Order(models.Model):
     items = models.CharField(max_length=1000)
     name = models.CharField(max_length=200)
